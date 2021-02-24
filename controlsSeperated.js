@@ -69,7 +69,17 @@ playPauseButton
 
 	videoContainerArray.forEach(function(item) {
 		item.addEventListener('canplaythrough', (event) => {
+			console.log("  canplaythrough video" );
 			item.setAttribute('poster','fogo_poster.png');
+			if(shouldPlay){
+				 playIfBuffered();
+			}
+    });
+	});
+
+	audioArray.forEach(function(item) {
+		item.addEventListener('canplaythrough', (event) => {
+			console.log("  canplaythrough audio" );
 			if(shouldPlay){
 				 playIfBuffered();
 			}
@@ -78,42 +88,53 @@ playPauseButton
 
 	videoContainerArray.forEach(function(item) {
 		item.addEventListener('waiting', (event) => {
+			console.log("  waiting video" );
 			if(shouldPlay){
 				playIfBuffered();
 		 }
     });
 	});
 
-
-	videoContainerArray.forEach(function(item) {
-		item.onerror = function() {
-			console.log("  error " );
-			item.load();
-			if(shouldPlay){
-				playIfBuffered();
-		 }
-		}
-	});
-
 	audioArray.forEach(function(item) {
-		item.onerror = function() {
-			console.log("  error " );
-			item.load();
+		item.addEventListener('waiting', (event) => {
+			console.log("  waiting audio " );
 			if(shouldPlay){
 				playIfBuffered();
-		 }
-		}
+		  }
+    });
 	});
 
-	document.onerror = function(error, url, line) {
-    console.log("Window Error: " + error);
-	    console.log("url: " + url);
-		    console.log("line: " + line);
-};
+/*
+	videoContainerArray.forEach(function(item) {
+		item.addEventListener('error', function(event) {
+			console.log("  error video" );
+			//item.load();
+			//if(shouldPlay){
+			//	playIfBuffered();
+		 //}
+	 });
+	});
+*/
+	audioArray.forEach(function(item) {
+		item.addEventListener('error', function(event) {
+			console.log("  error audio" );
+			//item.load();
+		//	if(shouldPlay){
+			//	playIfBuffered();
+		// }
+	});
+	});
+
+	window.addEventListener('error', function(event) {
+    console.log("Window Error: " + event);
+
+});
 
 function checkReady() {
 	var countReady = 0;
 	videoContainerArray.forEach(function(item) {
+
+			console.log("  item.readyState = " + item.readyState);
 		if ( item.readyState >= 3 ) { 	// it's loaded
 			countReady++;
 		}
