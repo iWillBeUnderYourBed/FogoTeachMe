@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="controlsCompletePreload.js" async></script>
+      <link rel="stylesheet" type="text/css" href="thomuchstyle.css">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Samba Reggae</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+
+    <!-- caching control, not valid HTML5
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+      caching control, not valid HTML5 -->
+
+  </head>
+  <body >
+    <div class="w3-panel w3-blue w3-display-container " id="infoPanel" style="display:none; color:#FFF; font-family:Maiandra GD; font-weight: 300; font-size:24px; padding-left:20%; margin-left:5%; margin-right:5%; margin-top:0%;">
+      <span onclick="this.parentElement.style.display='none'"  class="w3-button w3-display-topright">X</span>
+      <!-- <span id="infoPanelText" style="color:#FFF; font:Rockwell; font-weight: 300; font-size:16px; padding-left:20%;"> </span> -->
+    </div>
+    <div class="centered-inside">
+        <table style="width:100%">
+         <td style="width:25%; text-align:center;">
+             <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">Abweichung in [ms]</span>
+         </td>
+         <td style="width:25%; text-align:center;">
+            <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">Abweichung in [ms]</span>
+         </td>
+         <td style="width:25%; text-align:center;">
+            <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">Abweichung in [ms]</span>
+         </td>
+         <td style="width:25%; text-align:center;">
+            <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">Abweichung in [ms]</span>
+         </td>
+        </table>
+    </div>
+    <audio class="audio-container"  preload="none">
+         <!--<source src="music/SambaReggae_Sticks.mp3" type="audio/mpeg"> -->
+       <!--  <source src="music/SambaReggae_Sticks.wav" type="audio/wav"> -->
+       <!-- https://video.fogodosamba.de/ -->
+         <source src="https://video.fogodosamba.de/music/SambaReggae_Sticks.ogg" type="audio/ogg" >
+    </audio>
+    <audio class="audio-container"  preload="none">
+       <!--  <source src="music/SambaReggae_Fundo1.mp3" type="audio/mpeg"> -->
+       <!--  <source src="music/SambaReggae_Fundo1.wav" type="audio/wav"> -->
+         <source src="https://video.fogodosamba.de/music/SambaReggae_Fundo1.ogg" type="audio/ogg" >
+    </audio>
+    <audio class="audio-container"  preload="none">
+       <!--  <source src="music/SambaReggae_Dobra.mp3" type="audio/mpeg"> -->
+       <!--  <source src="music/SambaReggae_Dobra.wav" type="audio/wav"> -->
+         <source src="https://video.fogodosamba.de/music/SambaReggae_Dobra.ogg" type="audio/ogg" >
+    </audio>
+    <audio class="audio-container"  preload="none">
+       <!--  <source src="music/SambaReggae_Fundo2.mp3" type="audio/mpeg"> -->
+       <!--  <source src="music/SambaReggae_Fundo2.wav" type="audio/wav"> -->
+         <source src="https://video.fogodosamba.de/music/SambaReggae_Fundo2.ogg" type="audio/ogg" >
+    </audio>
+    <audio class="audio-container"  preload="none">
+    <!-- muss leer bleiben -->
+    </audio>
+    <audio class="audio-container"  preload="none">
+        <!-- <source src="music/SambaReggae_Timbal.mp3" type="audio/mpeg"> -->
+        <!-- <source src="music/SambaReggae_Timbal.wav" type="audio/wav"> -->
+         <source src="https://video.fogodosamba.de/music/SambaReggae_Timbal.ogg" type="audio/ogg">
+    </audio>
+    <audio class="audio-container"  preload="none">
+      <!--   <source src="music/SambaReggae_Caixa.mp3" type="audio/mpeg"> -->
+        <!-- <source src="music/SambaReggae_Caixa.wav" type="audio/wav"> -->
+         <source src="https://video.fogodosamba.de/music/SambaReggae_Caixa.ogg" type="audio/ogg">
+    </audio>
+    <audio class="audio-container"  preload="none">
+      <!--  <source src="music/SambaReggae_Repi.mp3" type="audio/mpeg"> -->
+      <!--  <source src="music/SambaReggae_Repi.wav" type="audio/wav"> -->
+        <source src="https://video.fogodosamba.de/music/SambaReggae_Repi.ogg" type="audio/ogg">
+    </audio>
+     <div class="centered-inside">
+        <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
+            <source src="https://video.fogodosamba.de/media/SambaReggae_Sticks.mp4" type="video/mp4">
+        </video>
+        <video class="video-container" width="400" height="450" preload="none"muted poster="fogo_poster_buffering.png" >
+            <source src="https://video.fogodosamba.de/media/SambaReggae_Fundo1.mp4" type="video/mp4">
+        </video>
+        <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
+            <source src="https://video.fogodosamba.de/media/SambaReggae_Dobra.mp4" type="video/mp4">
+        </video>
+	      <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
+            <source src="https://video.fogodosamba.de/media/SambaReggae_Fundo2.mp4" type="video/mp4">
+        </video>
+
+    </div>
+    <div class="centered-inside">
+        <table style="width:100%; margin-top:8px;">
+         <td style="width:25%; text-align:center;">
+             <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">no audio</span>
+         </td>
+         <td style="width:25%; text-align:center;">
+            <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">Abweichung in [ms]</span>
+         </td>
+         <td style="width:25%; text-align:center;">
+            <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;"><<< Referenzvideo >>></span>
+         </td>
+         <td style="width:25%; text-align:center;">
+            <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">Abweichung in [ms]</span>
+         </td>
+        </table>
+    </div>
+    <div class="centered-inside">
+
+        <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
+            <source src="https://video.fogodosamba.de/media/SambaReggae_Ansage.mp4" type="video/mp4">
+        </video>
+        <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
+            <source src="https://video.fogodosamba.de/media/SambaReggae_Timbal.mp4" type="video/mp4">
+        </video>
+	      <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
+            <source src="https://video.fogodosamba.de/media/SambaReggae_Caixa.mp4" type="video/mp4">
+        </video>
+	      <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png">
+            <source src="https://video.fogodosamba.de/media/SambaReggae_Repi.mp4" type="video/mp4">
+        </video>
+
+
+    </div>
+
+    <table style="width:100%">
+     <tr valign=top>
+       <td style="width:40%"></td>
+       <td style="width:20%; text-align:center; " >
+         <ul class="button-group" style="margin-left:4px; margin-top:5px;" valign="middle">
+           <li>
+             <button class="green button " id="playPause" style="font-family:Arial; font-size:18px;"> &nbsp;Play in</button> </li>
+
+             <input type="text" onkeydown="return ( event.ctrlKey || event.altKey
+                    || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false)
+                    || (95<event.keyCode && event.keyCode<106)
+                    || (event.keyCode==8) || (event.keyCode==9)
+                    || (event.keyCode>34 && event.keyCode<40)
+                    || (event.keyCode==46) )"
+                    id="timeInputInButton" maxlength="3" size="1" value="3" style="font-family:Arial; text-align:center; font-size:18px; " > <!-- vertical-align: -5%; -->
+
+           <li> <button class="red button" id="stop" style="font-family:Arial; font-size:18px;"> &nbsp;Stop&nbsp;&nbsp;</button> </li>
+       </ul>
+     </td>
+
+         <td>
+           <span id="timeDifferenceTextField" style="color:#999; font-family:Maiandra GD; font-weight: 200; text-align: right; float: right; margin-top:14px; margin-right:0px;"></span>
+             <span style="color:#999; font-family:Maiandra GD; font-weight: 200; text-align: right; float: right; margin-top:14px; margin-right:5px;">
+             Average Time Shift =
+              </span >
+         </td>
+
+       <td style="width:20%">
+         <button type="button" class="collapsible" style="font-family:Maiandra GD; font-weight: 200;">Performance Info</button>
+         <div class="content">
+             <p >
+               <ol style="font-family:Maiandra GD; font-weight: 200;">
+                 <li>Use <a href="https://www.google.com/chrome/"  target="_blank">chrome</a>. Don't like google? Use <a href="https://www.srware.net/iron/"  target="_blank">Iron</a>. </li>
+                 <li>chrome://settings &#8594; Advanced &#8594; System &#8594; Use hardware acceleration when available &#8594; enable  </li>
+                 <li>chrome://flags &#8594; Override software rendering list &#8594; enable </li>
+                 <li>Install the newest driver for your graphics card.</li>
+                 <li>Install newest Version of <a href="https://www.google.com/chrome/"  target="_blank">DirectX</a>. </li>
+               </ol>
+             </p>
+         </div>
+          </td>
+          <td style="width:2%"></td>
+     </tr>
+   </table>
+
+  </body>
+</html>
