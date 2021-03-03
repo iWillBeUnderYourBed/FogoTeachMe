@@ -22,7 +22,11 @@ const downloadedArray = [];
 const bothDownloadedArray = [];
 const downloadedMap = new Map();
 const totalDownloadMap = new Map();
-
+const corsProxiesEnabled = document.getElementById('EnabledOrDisabled').innerHTML.trim() == "Enabled";
+const proxyCollection = document.getElementsByTagName('Proxy');
+const proxyArray = [...proxyCollection];
+const musicDomain = "http://music";
+const videoDomain = "https://video";
 
 playPauseButton
 	.addEventListener('click', function (e) {
@@ -116,9 +120,6 @@ function toggleMute(item, index) {
 
 			if(!noAudioSourceArray.includes(index)){
           audioArray[index].muted = false;
-
-					console.log("index: " + index);
-
 		  }
 			const time = item.currentTime;
 			audioArray.forEach(function(item, index) {
@@ -177,13 +178,7 @@ setInterval(
       for (let amount of totalDownloadMap.values()) {
          allTotal += amount;
       }
-				console.log("allLoaded: " + allLoaded);
-					console.log("allTotal: " + allTotal);
-						console.log(" downloadedMap.size: " +  downloadedMap.size);
-							console.log("factorOfDownloadsToWorkOn: " + factorOfDownloadsToWorkOn);
 			allTotal *= factorOfDownloadsToWorkOn;
-				console.log("allTotal *= factorOfDownloadsToWorkOn: " + allTotal);
-				console.log("====================================== " );
 			const percentageDownloaded = Math.round(allLoaded / allTotal * 100);
 			if(playPauseButton.classList.contains("green")){
 				playPauseButton.className = playPauseButton.className.replace( /(?:^|\s)green(?!\S)/g , 'blue' );
@@ -225,12 +220,36 @@ for (i = 0; i < coll.length; i++) {
 	}
 
 var simultaionsConnections = 0;
+
 	function preloadSingleAudioVideo(item, index) {
-    const url = item.getElementsByTagName("source")[0].src;
+    var url = item.getElementsByTagName("source")[0].src;
 		var req = new XMLHttpRequest();
-		req.open('GET', url, true);
+    var proxy = ""
+		if(corsProxiesEnabled && proxyArray.length > 0){
+			if(url.startsWith(musicDomain)){
+				proxy = proxyArray[0];
+			} else {
+				for (i = 0; i < proxyArray.length; i++) {
+            if(url.startsWith(proxyArray[i])){
+							url = url.split(proxyArray[i])[1];
+							if(i+1 < proxyArray.length){
+								proxy = proxyArray[i + 1];
+							} else {
+								url = videoDomain + url.split(musicDomain)[1];
+							}
+						}
+				}
+			}
+		} else if(url.startsWith(musicDomain)) {
+		  	url = videoDomain + url.split(musicDomain)[1];
+		}
+    item.getElementsByTagName("source")[0].src = proxy + url;
+		console.log("connection to: " +  proxy + url);
+		req.open('GET', proxy + url, true); //    http://alloworigin.com/get?url=    https://cors.bridged.cc/  https://api.allorigins.win/raw?url=    https://api.allorigins.win/get?url=
 		req.responseType = 'blob';
-		req.withCredentials = true;
+		//req.withCredentials = false;
+    //req.setRequestHeader('origin', '');
+    //req.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
 		req.onload = function() {
 			simultaionsConnections--;
@@ -256,9 +275,11 @@ var simultaionsConnections = 0;
 		  totalDownloadMap.set(item, event.total);
 		};
 		req.onerror = function() {
-		  console.log("req.onerror"  );
+			 console.log("req.onerror proxy: " + proxy  );
+			//if(proxy != ""){
+          preloadSingleAudioVideo(item, index);
+		//	}
 		}
-		console.log("req.send()"  );
 		req.send();
 	}
 
@@ -271,6 +292,10 @@ var simultaionsConnections = 0;
   }
 
 document.onload = (function() {
+	for (i = 0; i < proxyArray.length; i++) {
+		proxyArray[i] = proxyArray[i].innerHTML.trim();
+	}
+
 	preloadAudioVideo();
 	const firefoxOn = "<p> Please do not use friefox for this website, since it's not optimized for firefox. <br> Use <a href=\"https://www.google.com/chrome/\"  target=\"_blank\">chrome</a>. Don't like google? Use <a href=\"https://www.srware.net/iron/\"  target=\"_blank\">Iron</a>. </p>";
   const windowsOn = "<p> <blockquote><em>You seem to be running windows. Microsoft Edge works best and is most likely already installed!</em></blockquote>  </p>";

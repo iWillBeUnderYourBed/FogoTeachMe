@@ -3,7 +3,7 @@
   <head>
       <script src="controlsCompletePreload.js" async></script>
       <link rel="stylesheet" type="text/css" href="thomuchstyle.css">
-     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" >
     <title>Samba Reggae</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
@@ -16,13 +16,21 @@
       caching control, not valid HTML5 -->
 
   </head>
+     <xml >
+        <EnabledOrDisabled id="EnabledOrDisabled">
+             Enabled
+        </EnabledOrDisabled>
+        <Proxy>
+             https://api.allorigins.win/raw?url=
+        </Proxy>
+    </xml>
   <body >
     <div class="w3-panel w3-blue w3-display-container " id="infoPanel" style="display:none; color:#FFF; font-family:Maiandra GD; font-weight: 300; font-size:24px; padding-left:20%; margin-left:5%; margin-right:5%; margin-top:0%;">
       <span onclick="this.parentElement.style.display='none'"  class="w3-button w3-display-topright">X</span>
       <!-- <span id="infoPanelText" style="color:#FFF; font:Rockwell; font-weight: 300; font-size:16px; padding-left:20%;"> </span> -->
     </div>
     <div class="centered-inside">
-        <table style="width:100%">
+      <table style="width:100%">
          <td style="width:25%; text-align:center;">
              <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">Abweichung in [ms]</span>
          </td>
@@ -35,28 +43,28 @@
          <td style="width:25%; text-align:center;">
             <span class="avgDiffOf8" style="color:#FFF; font-family:Maiandra GD; font-weight: 300; text-align: center; float: center; margin-top:8px; margin-right:0px;">Abweichung in [ms]</span>
          </td>
-        </table>
+      </table>
     </div>
     <audio class="audio-container"  preload="none">
          <!--<source src="music/SambaReggae_Sticks.mp3" type="audio/mpeg"> -->
        <!--  <source src="music/SambaReggae_Sticks.wav" type="audio/wav"> -->
        <!-- https://video.fogodosamba.de/ -->
-         <source src="https://video.fogodosamba.de/music/SambaReggae_Sticks.ogg" type="audio/ogg" >
+         <source src="http://music.fogodosamba.de/music/SambaReggae_Sticks.ogg" type="audio/ogg" >
     </audio>
     <audio class="audio-container"  preload="none">
        <!--  <source src="music/SambaReggae_Fundo1.mp3" type="audio/mpeg"> -->
        <!--  <source src="music/SambaReggae_Fundo1.wav" type="audio/wav"> -->
-         <source src="https://video.fogodosamba.de/music/SambaReggae_Fundo1.ogg" type="audio/ogg" >
+         <source src="http://music.fogodosamba.de/music/SambaReggae_Fundo1.ogg" type="audio/ogg" >
     </audio>
     <audio class="audio-container"  preload="none">
        <!--  <source src="music/SambaReggae_Dobra.mp3" type="audio/mpeg"> -->
        <!--  <source src="music/SambaReggae_Dobra.wav" type="audio/wav"> -->
-         <source src="https://video.fogodosamba.de/music/SambaReggae_Dobra.ogg" type="audio/ogg" >
+         <source src="http://music.fogodosamba.de/music/SambaReggae_Dobra.ogg" type="audio/ogg" >
     </audio>
     <audio class="audio-container"  preload="none">
        <!--  <source src="music/SambaReggae_Fundo2.mp3" type="audio/mpeg"> -->
        <!--  <source src="music/SambaReggae_Fundo2.wav" type="audio/wav"> -->
-         <source src="https://video.fogodosamba.de/music/SambaReggae_Fundo2.ogg" type="audio/ogg" >
+         <source src="http://music.fogodosamba.de/music/SambaReggae_Fundo2.ogg" type="audio/ogg" >
     </audio>
     <audio class="audio-container"  preload="none">
     <!-- muss leer bleiben -->
@@ -78,16 +86,16 @@
     </audio>
      <div class="centered-inside">
         <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
-            <source src="https://video.fogodosamba.de/media/SambaReggae_Sticks.mp4" type="video/mp4">
-        </video>
-        <video class="video-container" width="400" height="450" preload="none"muted poster="fogo_poster_buffering.png" >
-            <source src="https://video.fogodosamba.de/media/SambaReggae_Fundo1.mp4" type="video/mp4">
+            <source src="http://music.fogodosamba.de/media/SambaReggae_Sticks.mp4" type="video/mp4">
         </video>
         <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
-            <source src="https://video.fogodosamba.de/media/SambaReggae_Dobra.mp4" type="video/mp4">
+            <source src="http://music.fogodosamba.de/media/SambaReggae_Fundo1.mp4" type="video/mp4">
+        </video>
+        <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
+            <source src="http://music.fogodosamba.de/media/SambaReggae_Dobra.mp4" type="video/mp4">
         </video>
 	      <video class="video-container" width="400" height="450" preload="none" muted poster="fogo_poster_buffering.png" >
-            <source src="https://video.fogodosamba.de/media/SambaReggae_Fundo2.mp4" type="video/mp4">
+            <source src="http://music.fogodosamba.de/media/SambaReggae_Fundo2.mp4" type="video/mp4">
         </video>
 
     </div>
